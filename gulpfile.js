@@ -1,5 +1,17 @@
 var gulp = require('gulp');
+var jshint = require('gulp-jshint');
 
-gulp.task('default', function() {
-
+// configure jshint task
+gulp.task('jshint', function() {
+  return gulp.src('js/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter('jshint-stylish'));
 });
+
+// configure which files to watch and what tasks to use on file changes
+gulp.task('watch', function() {
+  gulp.watch('js/*.js', ['jshint']); // update path!
+});
+
+// default task!
+gulp.task('default', ['watch']);
