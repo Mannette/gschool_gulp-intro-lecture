@@ -1,1 +1,8 @@
 /* add custom styles */
+h1 {
+  color: pink;
+}
+
+h2 {
+  color: green;
+}
